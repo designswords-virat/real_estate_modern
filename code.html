@@ -981,53 +981,47 @@
 <section id="projects" class="projects-section bg-surface-container-lowest">
 <div class="projects-pin-wrap">
 <div class="projects-pin-inner">
-<!-- Shared header overlay (top-left) -->
-<div class="projects-header-overlay absolute top-8 left-margin-mobile md:top-16 md:left-margin-desktop z-20 max-w-3xl pointer-events-none">
-<span class="font-label-md text-label-md text-accent-beige mb-3 block uppercase tracking-widest drop-shadow-lg">Selected Projects</span>
-<h2 class="font-headline-md text-2xl md:text-headline-lg text-white drop-shadow-2xl leading-tight">Crafting spaces that resonate with the human spirit.</h2>
+<!-- Section header — normal flow on mobile (above carousel), absolute overlay on desktop -->
+<div class="projects-header-overlay relative px-margin-mobile pt-12 pb-6 max-w-3xl z-20 md:absolute md:top-16 md:left-margin-desktop md:px-0 md:pt-0 md:pb-0 md:pointer-events-none">
+<span class="font-label-md text-label-md text-accent-beige mb-3 block uppercase tracking-widest md:drop-shadow-lg">Selected Projects</span>
+<h2 class="font-headline-md text-2xl md:text-headline-lg text-on-surface md:text-white md:drop-shadow-2xl leading-tight">Crafting spaces that resonate with the human spirit.</h2>
 </div>
-<!-- Cards track: each card is 100vw × 100vh -->
+<!-- Cards track: full-width mobile (h-[65vh], not full screen), full-viewport desktop (h-screen) -->
 <div class="projects-track-wrap">
 <div class="projects-track flex gap-0 overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory md:snap-none select-none" id="horizontal-scroll">
-<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<figure class="showcase-card snap-start flex-none w-screen h-[65vh] md:h-screen relative" data-showcase>
 <img loading="eager" class="absolute inset-0 w-full h-full object-cover" alt="Crystal Hub — close-up architectural detail of a glass skyscraper reflecting a clear sky, geometric glass-and-steel patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhYyLPOhXgp03dQN4B5Ytv3DpLZv7U514is625DYwQ420wKSoSVbWQHqzaB6wnrwCEBpVEL1cJ2UK_Dmez3GrOdTBEbhe-XIdTFiRRexSeZMHgVbkj7ywMBpi-QXXazVyGHeXmhgx_euj1kQLfQqeH5WLW6if4fYF-3iBTuNmstO6K4wwgNi9jqd_-vWV33gaEfnygTDye0gs_Ls59pwsy_uLqgYuX78DVWaMNlQ0Px4UIHIHiboErtHqH7QGIHTaRXE3mmyiUnI"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
-<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<figcaption class="project-caption absolute bottom-6 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
 <p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 04</p>
 <h4 class="font-headline-md text-2xl md:text-4xl text-white">Crystal Hub</h4>
 </figcaption>
 </figure>
-<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<figure class="showcase-card snap-start flex-none w-screen h-[65vh] md:h-screen relative" data-showcase>
 <img loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Mono Studio — an open-plan minimalist gallery space with polished concrete floors, dark industrial accents and natural light from large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ2QmXOVA7snYpcKhm8r6ZmqN0T43-EujQ8BwiWqbx1pC5Dj8cnF_lTCpnOhiGgXytGWeMfyUtPb0H0UStXMdEd1OUBrt2TAzS0K6Tj8WfxXrQPUTOWBzRd0MkCsJBkHxpaR2dl6U26fmgcmXOZREi0xs3EpuQFQRTMd1x8QSUJrbWluUfAzcR2-byQ5FK9zp1hIimffRUawPia-qYNfyC4k5cRNsAKqbROoNawHhN3t2NU0KoRARUcGAEa7DwPozfQiKHjY-hGI"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
-<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<figcaption class="project-caption absolute bottom-6 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
 <p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 05</p>
 <h4 class="font-headline-md text-2xl md:text-4xl text-white">Mono Studio</h4>
 </figcaption>
 </figure>
-<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<figure class="showcase-card snap-start flex-none w-screen h-[65vh] md:h-screen relative" data-showcase>
 <img loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Azure Heights — exterior of a luxury mediterranean villa with white walls, dark metal window frames, palm trees and a landscaped pool at late afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBRFWK5F8TXOkX4kzyI6tx7ujeC6N3EgVN28vbAzuWD-TsclV1PqrSidLA1zcjbMybvjPnAi42nYbnSO4qYKUtAqvfBwQPGHhheOp02sj7bCLbpUDFAIF0IiaevWiArkLjQD5dqjpgQ5ViEICZvDM0mHthidJ2SutMDC7HsBkOJx1YpFI_iA0MCUuEDw4GVqLjalsiswxY9VJOqxACCdpxetRwcDFCG6ZuCft7tCqEYUF06Kgj3IFvStn3f0LkNcfpl1sH6bSkxLY"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
-<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<figcaption class="project-caption absolute bottom-6 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
 <p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 06</p>
 <h4 class="font-headline-md text-2xl md:text-4xl text-white">Azure Heights</h4>
 </figcaption>
 </figure>
 </div>
 </div>
-<!-- Nav overlay (bottom-center, on top of cards) -->
-<div class="projects-nav absolute bottom-8 md:bottom-12 left-0 right-0 z-20 flex items-center justify-center gap-4 md:gap-6 px-margin-mobile md:px-margin-desktop pointer-events-none">
-<button id="prev-project" class="projects-arrow md:hidden pointer-events-auto" type="button" aria-label="Previous project">
-<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
-</button>
-<div class="projects-dots flex items-center gap-3 pointer-events-auto" role="tablist" aria-label="Project navigation">
+<!-- Dots — normal flow below carousel on mobile, absolute overlay on desktop. Arrows removed. -->
+<div class="projects-nav relative py-8 flex items-center justify-center px-margin-mobile md:absolute md:bottom-12 md:left-0 md:right-0 md:z-20 md:py-0 md:px-margin-desktop md:pointer-events-none">
+<div class="projects-dots flex items-center gap-3 md:pointer-events-auto" role="tablist" aria-label="Project navigation">
 <button class="projects-dot active" type="button" data-dot="0" role="tab" aria-label="Project 1 of 3"></button>
 <button class="projects-dot" type="button" data-dot="1" role="tab" aria-label="Project 2 of 3"></button>
 <button class="projects-dot" type="button" data-dot="2" role="tab" aria-label="Project 3 of 3"></button>
 </div>
-<button id="next-project" class="projects-arrow md:hidden pointer-events-auto" type="button" aria-label="Next project">
-<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-</button>
 </div>
 </div>
 </div>
