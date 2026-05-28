@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCH-STUDIO | Redefining Architectural Living</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#202020",
+                        "on-tertiary-fixed-variant": "#594320",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-tertiary": "#402d0c",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1b1b1c",
+                        "tertiary-fixed": "#ffddb0",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-primary": "#5f5e5e",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#e2c195",
+                        "secondary": "#c6c6c7",
+                        "outline-variant": "#444748",
+                        "on-secondary": "#2f3131",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#150b00",
+                        "outline": "#8e9192",
+                        "surface-tint": "#c9c6c5",
+                        "surface-variant": "#353535",
+                        "primary-fixed": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-bright": "#393939",
+                        "on-tertiary-container": "#91764f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#b4b5b5",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#281800",
+                        "on-primary-container": "#7c7a7a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#303030",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#454747",
+                        "surface-container-highest": "#353535",
+                        "primary": "#c9c6c5",
+                        "tertiary": "#e2c195",
+                        "on-primary": "#313030",
+                        "primary-container": "#0d0d0d",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container-high": "#2a2a2a",
+                        "accent-beige": "#C8A97E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "16px",
+                        "max-width": "1440px",
+                        "unit": "8px",
+                        "margin-desktop": "80px",
+                        "gutter-desktop": "32px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Clash Display"],
+                        "headline-md": ["Clash Display"],
+                        "display-lg-mobile": ["Clash Display"],
+                        "headline-lg": ["Clash Display"],
+                        "label-md": ["Manrope"],
+                        "headline-sm": ["Clash Display"],
+                        "body-md": ["Manrope"],
+                        "display-xl": ["Clash Display"],
+                        "headline-lg-mobile": ["Clash Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["42px", {"lineHeight": "48px", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        :focus-visible { outline: 1px solid #e2c195; outline-offset: 4px; }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ============================================================
+           PAGE-LEVEL · Lenis smooth scroll resets
+           ============================================================ */
+        html.lenis, html.lenis body { height: auto; }
+        html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+        html.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        html.lenis.lenis-stopped { overflow: clip; }
+        html.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+        /* ============================================================
+           SECTION 1 · NAV — logo letter-stagger on load + scroll glow
+           ============================================================ */
+        .nav-letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(-12px);
+            animation: nav-letter-in 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+        }
+        @keyframes nav-letter-in {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #main-nav.scrolled {
+            box-shadow: 0 1px 0 rgba(226,193,149,0.18), 0 20px 60px rgba(0,0,0,0.45);
+        }
+        #main-nav.scrolled .nav-row { height: 4.5rem; }
+        .nav-row { height: 5.5rem; transition: height 0.6s cubic-bezier(0.22,1,0.36,1); }
+
+        /* ============================================================
+           SECTION 2 · HERO — Ken Burns + word-mask text reveal + filter slide
+           ============================================================ */
+        .hero-img-kb {
+            animation: ken-burns 18s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+        @keyframes ken-burns {
+            0%   { transform: scale(1.08) translate(0, 0); }
+            100% { transform: scale(1.18) translate(-2%, 1.5%); }
+        }
+        .hero-line {
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0.14em; /* allow descenders (g, p, y) past the baseline */
+        }
+        .hero-word {
+            display: inline-block;
+            transform: translateY(115%);
+            animation: hero-word-up 1.1s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        .hero-word.delay-1 { animation-delay: 0.15s; }
+        .hero-word.delay-2 { animation-delay: 0.35s; }
+        .hero-word.delay-3 { animation-delay: 0.45s; }
+        @keyframes hero-word-up {
+            from { transform: translateY(115%); }
+            to   { transform: translateY(0); }
+        }
+        .hero-accent {
+            display: inline-block;
+            color: #e2c195;
+            font-weight: 500;
+        }
+        .hero-eyebrow {
+            opacity: 0;
+            animation: hero-fade-in 0.8s ease 0.05s forwards;
+            display: inline-flex; align-items: center; gap: 0.75rem;
+        }
+        .hero-eyebrow .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #e2c195;
+            box-shadow: 0 0 12px rgba(226,193,149,0.7);
+            animation: hero-dot-pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes hero-dot-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%      { transform: scale(1.6); opacity: 0.4; }
+        }
+        .hero-scroll-cue {
+            opacity: 0;
+            animation: hero-fade-in 1.0s ease 1.8s forwards;
+        }
+        .hero-scroll-cue .line {
+            display: block;
+            width: 1px; height: 40px;
+            background: linear-gradient(to bottom, transparent, #e2c195);
+            margin-inline: auto;
+            animation: scroll-cue 2.2s ease-in-out infinite;
+            transform-origin: top;
+        }
+        @keyframes scroll-cue {
+            0%   { transform: scaleY(0); }
+            50%  { transform: scaleY(1); }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+        .hero-fade { opacity: 0; animation: hero-fade-in 1.0s ease 1.0s forwards; }
+        @keyframes hero-fade-in { to { opacity: 1; } }
+        .hero-filter {
+            opacity: 0; transform: translateY(40px);
+            animation: hero-filter-up 1.0s cubic-bezier(0.22,1,0.36,1) 1.3s forwards;
+        }
+        @keyframes hero-filter-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-filter-field {
+            position: relative;
+        }
+        .hero-filter-field::after {
+            content: "";
+            position: absolute; left: 0; bottom: -6px;
+            height: 1px; width: 0;
+            background: #e2c195;
+            transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        .hero-filter-field:focus-within::after { width: 100%; }
+
+        /* ============================================================
+           SECTION 3 · FEATURED PROPERTIES — 3D card tilt + slat reveal
+           ============================================================ */
+        .property-card {
+            opacity: 0;
+            transform: perspective(900px) rotateX(8deg) translateY(40px);
+            transition: opacity 1.0s cubic-bezier(0.22,1,0.36,1),
+                        transform 1.0s cubic-bezier(0.22,1,0.36,1);
+        }
+        .property-card.in {
+            opacity: 1;
+            transform: perspective(900px) rotateX(0deg) translateY(0);
+        }
+        .property-img-wrap { position: relative; overflow: hidden; }
+        .property-img-wrap::before {
+            content: ""; position: absolute; inset: 0; z-index: 2;
+            background: #131313;
+            transform-origin: top;
+            transform: scaleY(1);
+            transition: transform 1.1s cubic-bezier(0.85,0,0.15,1);
+        }
+        .property-card.in .property-img-wrap::before { transform: scaleY(0); }
+        .property-card .property-meta {
+            transform: translateY(8px); opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.22,1,0.36,1) 0.5s,
+                        opacity 0.6s ease 0.5s;
+        }
+        .property-card.in .property-meta { transform: translateY(0); opacity: 1; }
+
+        /* ============================================================
+           SECTION 4 · HORIZONTAL SHOWCASE — slide-in from right + drift
+           ============================================================ */
+        .showcase-card {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+                        transform 0.9s cubic-bezier(0.22,1,0.36,1);
+        }
+        .showcase-card.in { opacity: 1; transform: translateX(0); }
+        .showcase-card .showcase-caption {
+            transform: translateY(20px); opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        .showcase-card:hover .showcase-caption { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+           SECTION 5 · ABOUT — line-by-line headline + image clip-path
+           ============================================================ */
+        .about-line {
+            display: block; overflow: hidden;
+        }
+        .about-line > span {
+            display: block;
+            transform: translateY(100%);
+            transition: transform 1.0s cubic-bezier(0.22,1,0.36,1);
+        }
+        .about-line.in > span { transform: translateY(0); }
+        .about-line:nth-of-type(2) > span { transition-delay: 0.1s; }
+        .about-line:nth-of-type(3) > span { transition-delay: 0.2s; }
+        .about-img-clip {
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 1.2s cubic-bezier(0.85,0,0.15,1) 0.2s;
+        }
+        .about-img-clip.in { clip-path: inset(0 0 0 0); }
+        [data-about-line] {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        [data-about-line].in { opacity: 1; transform: translateY(0); }
+        .about-pill .about-pill-line {
+            transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        .about-pill:hover .about-pill-line { width: 5rem; }
+
+        /* ============================================================
+           SECTION 6 · AMENITIES — 3D flip-in + icon spin on hover
+           ============================================================ */
+        .amenity-card {
+            opacity: 0;
+            transform: perspective(900px) rotateY(-25deg) translateZ(-40px);
+            transform-origin: left center;
+            transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+                        transform 0.9s cubic-bezier(0.22,1,0.36,1);
+        }
+        .amenity-card.in {
+            opacity: 1;
+            transform: perspective(900px) rotateY(0) translateZ(0);
+        }
+        .amenity-card .amenity-icon {
+            display: inline-block;
+            transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+        }
+        .amenity-card:hover .amenity-icon {
+            transform: rotate(360deg) scale(1.08);
+        }
+
+        /* ============================================================
+           SECTION 7 · STATS — count-up + underline draw
+           ============================================================ */
+        .stat-block { position: relative; padding-bottom: 1rem; }
+        .stat-block::after {
+            content: ""; position: absolute; left: 0; bottom: 0;
+            height: 1px; width: 0;
+            background: #e2c195;
+            transition: width 1.2s cubic-bezier(0.22,1,0.36,1) 0.3s;
+        }
+        .stat-block.in::after { width: 100%; }
+        .stat-number {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        .stat-block.in .stat-number { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+           SECTION 8 · TESTIMONIALS — quote scale + paragraph word stagger
+           ============================================================ */
+        .testimonial-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.97);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22,1,0.36,1);
+        }
+        .testimonial-card.in { opacity: 1; transform: translateY(0) scale(1); }
+        .testimonial-card .testimonial-quote {
+            transform: scale(0.4) rotate(-15deg);
+            opacity: 0;
+            transition: transform 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.2s,
+                        opacity 0.7s ease 0.2s;
+        }
+        .testimonial-card.in .testimonial-quote {
+            transform: scale(1) rotate(0); opacity: 1;
+        }
+
+        /* ============================================================
+           SECTION 9 · FOOTER — wave reveal (sequential rise)
+           ============================================================ */
+        .footer-rise {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        .footer-rise.in { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+           SECTION 10 · PROCESS — connecting line draws + numbered scale
+           ============================================================ */
+        .process-track { position: relative; }
+        .process-line {
+            display: none;
+            position: absolute; left: 0; right: 0; top: 22px;
+            height: 1px;
+            background: rgba(226, 193, 149, 0.18);
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .process-line { display: block; }
+            .process-line::after {
+                content: "";
+                position: absolute; left: 0; top: 0; bottom: 0;
+                width: 0;
+                background: #e2c195;
+                transition: width 1.6s cubic-bezier(0.22,1,0.36,1);
+            }
+            .process-track.in .process-line::after { width: 100%; }
+        }
+        .process-step {
+            position: relative;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        .process-step.in { opacity: 1; transform: translateY(0); }
+        .process-num {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: #131313;
+            border: 1px solid #e2c195;
+            color: #e2c195;
+            font-family: 'Clash Display', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            transform: scale(0);
+            transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.2s;
+            position: relative; z-index: 1;
+        }
+        .process-step.in .process-num { transform: scale(1); }
+
+        /* ============================================================
+           SECTION 11 · CINEMATIC REEL — parallax + headline mask + ripple play
+           ============================================================ */
+        .film-section { background: #0e0e0e; }
+        .film-parallax { will-change: transform; }
+        .film-mask {
+            display: block; overflow: hidden;
+            padding-bottom: 0.14em;
+        }
+        .film-mask > span {
+            display: block;
+            transform: translateY(105%);
+            transition: transform 1.1s cubic-bezier(0.22,1,0.36,1);
+        }
+        [data-film-headline].in .film-mask > span { transform: translateY(0); }
+        [data-film-line] {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        [data-film-line].in { opacity: 1; transform: translateY(0); }
+        .film-play {
+            background: transparent; border: none; cursor: pointer; color: inherit;
+            padding: 0;
+        }
+        .film-play-circle {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 72px; height: 72px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            position: relative;
+            transition: border-color 0.5s ease, background 0.5s ease;
+        }
+        .film-play-circle::before,
+        .film-play-circle::after {
+            content: ""; position: absolute; inset: 0;
+            border-radius: 50%;
+            border: 1px solid #e2c195;
+            opacity: 0;
+            animation: film-ripple 2.6s ease-out infinite;
+        }
+        .film-play-circle::after { animation-delay: 1.3s; }
+        .film-play:hover .film-play-circle {
+            border-color: #e2c195; background: rgba(226,193,149,0.06);
+        }
+        @keyframes film-ripple {
+            0%   { transform: scale(1);   opacity: 0.7; }
+            100% { transform: scale(1.7); opacity: 0;   }
+        }
+
+        /* Film modal */
+        .film-modal {
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(14, 14, 14, 0.96);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        .film-modal.open { opacity: 1; pointer-events: auto; }
+        .film-modal video {
+            width: min(96vw, 1280px);
+            max-height: 86vh;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border: 1px solid rgba(226,193,149,0.18);
+        }
+        .film-close {
+            position: absolute; top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent; color: #fff; cursor: pointer;
+            transition: border-color 0.4s ease, background 0.4s ease;
+        }
+        .film-close:hover { border-color: #e2c195; background: rgba(255,255,255,0.05); }
+
+        /* ============================================================
+           SECTION 12 · PRESS MARQUEE — infinite scroll
+           ============================================================ */
+        .marquee-wrap {
+            overflow: hidden; width: 100%;
+            mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+        }
+        .marquee-track {
+            display: flex; align-items: center; gap: 5rem;
+            width: max-content;
+            animation: marquee-scroll 38s linear infinite;
+        }
+        .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+        .marquee-item {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: rgba(229, 226, 225, 0.35);
+            white-space: nowrap;
+            transition: color 0.5s ease;
+            user-select: none;
+        }
+        .marquee-item:hover { color: #e2c195; }
+        @keyframes marquee-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ============================================================
+           SECTION 13 · JOURNAL — multi-direction clip-path reveal
+           ============================================================ */
+        .journal-card {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .journal-card.in { opacity: 1; }
+        .journal-img-wrap { overflow: hidden; position: relative; }
+        .journal-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transform: scale(1);
+            transition: transform 1.4s cubic-bezier(0.22,1,0.36,1),
+                        clip-path 1.1s cubic-bezier(0.85,0,0.15,1) 0.15s;
+        }
+        .journal-card.from-left  .journal-img { clip-path: inset(0 100% 0 0); }
+        .journal-card.from-top   .journal-img { clip-path: inset(100% 0 0 0); }
+        .journal-card.from-right .journal-img { clip-path: inset(0 0 0 100%); }
+        .journal-card.in .journal-img { clip-path: inset(0 0 0 0); }
+        .journal-card:hover .journal-img { transform: scale(1.08); }
+        .journal-card h3 {
+            transition: color 0.4s ease;
+        }
+        .journal-card:hover h3 { color: #e2c195; }
+
+        /* ============================================================
+           SECTION 14 · FAQ — accordion with grid-row transition + icon spin
+           ============================================================ */
+        [data-faq-line] {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        [data-faq-line].in { opacity: 1; transform: translateY(0); }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        .faq-item.in { opacity: 1; transform: translateY(0); }
+        .faq-trigger {
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            gap: 2rem; padding: 1.75rem 0;
+            background: transparent; border: none; cursor: pointer;
+            color: inherit; text-align: left;
+            transition: color 0.4s ease;
+        }
+        .faq-trigger:hover { color: #e2c195; }
+        .faq-icon {
+            font-size: 28px; color: #e2c195;
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-icon { transform: rotate(135deg); }
+        .faq-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.6s cubic-bezier(0.22,1,0.36,1);
+        }
+        .faq-item.open .faq-content { grid-template-rows: 1fr; }
+        .faq-content > div { overflow: hidden; }
+        .faq-content p {
+            padding-bottom: 2rem;
+            color: #c4c7c7;
+            max-width: 65ch;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           SECTION 15 · FINAL CTA — slow ken burns + headline glitch
+           ============================================================ */
+        .cta-final { background: #0e0e0e; }
+        .cta-bg-img {
+            transform: scale(1.08);
+            animation: ken-burns-slow 22s ease-in-out infinite alternate;
+        }
+        @keyframes ken-burns-slow {
+            0%   { transform: scale(1.08) translate(0, 0); }
+            100% { transform: scale(1.18) translate(2%, -1.5%); }
+        }
+        .cta-glitch {
+            position: relative;
+            color: #e5e2e1;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        .cta-glitch.in {
+            opacity: 1; transform: translateY(0);
+            animation: glitch-flicker 1.6s steps(2, end) both;
+        }
+        .cta-glitch::before,
+        .cta-glitch::after {
+            content: attr(data-text);
+            position: absolute; left: 0; top: 0;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            opacity: 0;
+        }
+        .cta-glitch.in::before {
+            color: #ff5c5c;
+            animation: glitch-r 0.9s ease-out both;
+        }
+        .cta-glitch.in::after {
+            color: #5cf0ff;
+            animation: glitch-c 0.9s ease-out both;
+        }
+        @keyframes glitch-flicker {
+            0%, 100% { filter: none; }
+            10%      { filter: brightness(1.3); }
+            12%      { filter: none; }
+            18%      { filter: brightness(0.7); }
+            20%      { filter: none; }
+        }
+        @keyframes glitch-r {
+            0%   { transform: translate(-6px, 0); opacity: 0.85; }
+            50%  { transform: translate(3px, 0);  opacity: 0.5; }
+            100% { transform: translate(0, 0);    opacity: 0; }
+        }
+        @keyframes glitch-c {
+            0%   { transform: translate(6px, 0);  opacity: 0.85; }
+            50%  { transform: translate(-3px, 0); opacity: 0.5; }
+            100% { transform: translate(0, 0);    opacity: 0; }
+        }
+        [data-cta-line] {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        [data-cta-line].in { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+           PAGE-LEVEL · Custom cursor (mix-blend-difference for dark/light surfaces)
+           ============================================================ */
+        .cursor-dot, .cursor-ring {
+            position: fixed; top: 0; left: 0;
+            pointer-events: none; z-index: 250;
+            mix-blend-mode: difference;
+            will-change: transform;
+        }
+        .cursor-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #fff;
+            transform: translate(-50%, -50%);
+        }
+        .cursor-ring {
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 1px solid #fff;
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                        width 0.35s cubic-bezier(0.22,1,0.36,1),
+                        height 0.35s cubic-bezier(0.22,1,0.36,1),
+                        background 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Manrope', sans-serif;
+            font-size: 9px; font-weight: 600;
+            letter-spacing: 0.18em;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        body.cursor-hover .cursor-ring {
+            transform: translate(-50%, -50%) scale(1.7);
+            background: rgba(255,255,255,0.06);
+        }
+        body.cursor-label .cursor-ring {
+            width: 80px; height: 80px;
+        }
+        @media (hover: none), (pointer: coarse) {
+            .cursor-dot, .cursor-ring { display: none; }
+        }
+        .magnetic-btn { will-change: transform; }
+
+        /* ============================================================
+           SECTION 5 (anchor) · PROCESS pinned scroll-scrub
+           — overrides the previous IO-based reveal; each step activates
+             sequentially as the section pins
+           ============================================================ */
+        @media (min-width: 768px) {
+            .process-pin-wrap {
+                position: relative;
+                min-height: 100vh;
+            }
+            .process-pin-inner {
+                position: sticky; top: 0;
+                min-height: 100vh;
+                display: flex; flex-direction: column;
+                justify-content: center;
+                padding-block: 6rem;
+            }
+        }
+        .process-step.active .process-num {
+            background: #e2c195;
+            color: #131313;
+        }
+        .process-step.active h3 { color: #e2c195; }
+        .process-progress {
+            position: absolute; left: 0; right: 0; top: 22px;
+            height: 1px;
+            background: rgba(226, 193, 149, 0.18);
+            display: none;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .process-progress { display: block; }
+        }
+
+        /* ============================================================
+           Mobile menu
+           ============================================================ */
+        #mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        #mobile-menu.open { transform: translateY(0); }
+
+        /* ============================================================
+           Reduced motion
+           ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .hero-img-kb { animation: none !important; transform: none !important; }
+            .property-img-wrap::before { display: none; }
+            .about-img-clip { clip-path: inset(0 0 0 0) !important; }
+            .marquee-track { animation: none !important; }
+            .cta-bg-img { animation: none !important; }
+            .film-play-circle::before, .film-play-circle::after { animation: none !important; }
+            .journal-img { clip-path: inset(0 0 0 0) !important; }
+            .cursor-dot, .cursor-ring { display: none !important; }
+            .process-pin-wrap { min-height: auto !important; }
+            .process-pin-inner { position: static !important; padding-block: 0 !important; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- Custom cursor -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/5 backdrop-blur-xl border-b border-white/10">
+<div class="nav-row px-margin-mobile md:px-margin-desktop flex justify-between items-center">
+<a href="#" id="nav-logo" class="font-headline-sm text-headline-sm font-bold tracking-tighter text-on-surface" aria-label="ARCH-STUDIO home"></a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#properties">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#projects">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="magnetic-btn hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-label-md text-label-md rounded-none transition-colors duration-300 hover:bg-white">
+            Schedule Tour
+        </button>
+<button id="menu-btn" class="md:hidden material-symbols-outlined text-on-surface text-3xl" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">menu</button>
+</div>
+</div>
+</nav>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-surface pt-32 px-margin-mobile md:hidden" aria-hidden="true">
+<nav class="flex flex-col gap-6 font-headline-md text-headline-md">
+<a href="#properties" class="hover:text-accent-beige transition-colors">Properties</a>
+<a href="#projects" class="hover:text-accent-beige transition-colors">Projects</a>
+<a href="#about" class="hover:text-accent-beige transition-colors">About</a>
+<a href="#contact" class="hover:text-accent-beige transition-colors">Contact</a>
+</nav>
+<button class="mt-10 bg-primary text-on-primary px-8 py-3 font-label-md text-label-md hover:bg-white transition-colors">Schedule Tour</button>
+</div>
+<!-- Hero Section -->
+<header class="relative min-h-screen w-full overflow-hidden flex flex-col justify-end pt-28 md:pt-0">
+<div class="absolute inset-0 z-0">
+<img class="hero-img-kb w-full h-full object-cover" alt="A cinematic wide shot of a modern architectural masterpiece at sunset with floor-to-ceiling glass walls, sleek concrete lines, and an infinity pool reflecting an orange and purple sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTwgZVYqdD3XiXsWoXSbGjO-VRjjeWBh5TSeugd6zyQ-QS3r9ae7Twx-PUzMjyPojYg4uxcxPG09UShvwyzp3uafeTFfFMos06qRlaqyI8pleXMcCGTwuzMbflagg6C7WPb3h6JVR8XA9NZuePKEp-6s0QWaLpq_wo6zXCU9dYqWZtq-hgzNjxNKM89ckAjoxCQ9w05ujCj4kPb_cyg9oVx2uvFdbreFZBGnenBL-_w9VtWegvEGX9b2-5taK8TbnLEUy35NQD0Ew"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop mb-16 md:mb-24 max-w-5xl">
+<span class="hero-eyebrow font-label-md text-label-md text-accent-beige uppercase tracking-[0.3em] mb-8">
+<span class="dot" aria-hidden="true"></span>
+Now Reserving · Collection 02
+</span>
+<h1 class="text-on-surface leading-[1.02] mt-6 mb-8 text-[clamp(2.5rem,8.5vw,5.5rem)] font-display-xl font-semibold tracking-tight">
+<span class="hero-line"><span class="hero-word delay-1">Redefining</span></span>
+<span class="hero-line"><span class="hero-word delay-2">Architectural</span></span>
+<span class="hero-line"><span class="hero-word delay-3"><span class="hero-accent">Living.</span></span></span>
+</h1>
+<p class="hero-fade font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                Bespoke residences designed for the future. Experience the intersection of structural integrity, climate intelligence, and timeless aesthetics.
+            </p>
+<div class="hero-fade flex flex-wrap items-center gap-6">
+<a href="#properties" class="magnetic-btn bg-primary text-on-primary px-8 py-4 font-label-md text-label-md uppercase hover:bg-white transition-colors duration-300">Explore Portfolio</a>
+<a href="#contact" class="font-label-md text-label-md uppercase text-on-surface border-b border-accent-beige pb-1 hover:text-accent-beige transition-colors">Book a Private Viewing</a>
+</div>
+</div>
+<div class="hero-scroll-cue absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 text-on-surface-variant pointer-events-none">
+<span class="line" aria-hidden="true"></span>
+<span class="font-label-md text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+</div>
+<!-- Filter Bar -->
+<div class="hero-filter relative z-10 px-margin-mobile md:px-margin-desktop pb-12">
+<form class="glass p-6 md:p-8 grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_auto] gap-6 md:gap-0 md:divide-x md:divide-white/10 items-center" onsubmit="event.preventDefault();">
+<div class="hero-filter-field md:pr-6">
+<label for="filter-location" class="font-label-md text-label-md text-accent-beige uppercase block mb-2">Location</label>
+<select id="filter-location" name="location" class="bg-transparent border-none text-on-surface font-headline-sm w-full p-0 focus:ring-0">
+<option>Malibu, CA</option>
+<option>Aspen, CO</option>
+<option>Austin, TX</option>
+</select>
+</div>
+<div class="hero-filter-field md:px-6">
+<label for="filter-type" class="font-label-md text-label-md text-accent-beige uppercase block mb-2">Type</label>
+<select id="filter-type" name="type" class="bg-transparent border-none text-on-surface font-headline-sm w-full p-0 focus:ring-0">
+<option>Modern Villa</option>
+<option>Penthouse</option>
+<option>Eco-Retreat</option>
+</select>
+</div>
+<div class="hero-filter-field md:px-6">
+<label for="filter-price" class="font-label-md text-label-md text-accent-beige uppercase block mb-2">Price Range</label>
+<select id="filter-price" name="price" class="bg-transparent border-none text-on-surface font-headline-sm w-full p-0 focus:ring-0">
+<option>$5M - $10M</option>
+<option>$10M - $25M</option>
+<option>$25M+</option>
+</select>
+</div>
+<div class="md:pl-6">
+<button type="submit" class="w-full md:w-auto bg-primary text-on-primary p-5 md:p-6 hover:bg-white transition-colors flex items-center justify-center" aria-label="Search properties">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</form>
+</div>
+</header>
+<!-- Featured Properties -->
+<section id="properties" class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16 property-card" data-property>
+<div>
+<span class="font-label-md text-label-md text-accent-beige mb-4 block uppercase tracking-widest">Selected Works</span>
+<h2 class="font-headline-lg text-headline-lg">Featured Properties</h2>
+</div>
+<a class="text-on-surface-variant hover:text-on-surface flex items-center gap-2 group self-start md:self-end" href="#properties">
+                View All Portfolio
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<!-- Property 1 -->
+<article class="property-card group cursor-pointer" data-property>
+<div class="property-img-wrap aspect-[4/5] mb-6">
+<img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="The Void House — a minimalist white concrete villa with cantilevered sections and large glass panes against a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAqFlIXBoqUfPJTuwaJwByO-Z-GwF_kpH4sSo2Fv7cn7NJy0vIDIvpjfCWyOB8hRsa3H9J7LlMaKByNCMXJZol9Pndt7JaEyF6ZUzX1ZCCTzxLZG4BGkuz_RenUE6S8jmkmzuWk-RHd5aRiRadGvKkHOzagiJKPAxH-hHIQTFexPXnxr8wemcAyBq5e0lBKEUu8M0ZJysqqzd2BrmP595UWD58EjpMP5JpT7ErCPFzNqmTV3srr5TTm5peUFFcHgmvsDgzPa2E53Q"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-10">
+<span class="bg-white text-black px-6 py-3 font-label-md uppercase">View Details</span>
+</div>
+</div>
+<div class="property-meta">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-accent-beige transition-colors">The Void House</h3>
+<p class="font-body-md text-on-surface-variant">Malibu, California • $18,500,000</p>
+</div>
+</article>
+<!-- Property 2 -->
+<article class="property-card group cursor-pointer" data-property style="transition-delay: 120ms;">
+<div class="property-img-wrap aspect-[4/5] mb-6">
+<img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Sky Pavilion — a curved white sofa and marble coffee table set in a concrete-walled penthouse living room with a floor-to-ceiling window onto a dense city skyline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCboBz6jLDsa-aCv-Cto4NkJSrncS1gIBSfLiU6cRz04gXEp6ZsAxVc3FTuY-PgVf4ahOW-vVhT5854cLs36NZvSm0KhV29HJIIb8eU0X4FelATpGu8BUM-vr030j-WPEvPCzz5JC-eAjg3ZFsjg0CmEeYiT9kn-GSftAyewAf0dVsBpF6k0uk4SyAsqzz-kuFYUdJSZ073ggTW7UkC1XtikS5cu_W-vYYY-VaeJmIiYyhLFlpllH46kFMDX92fh17X7QoZcd9h-PQ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-10">
+<span class="bg-white text-black px-6 py-3 font-label-md uppercase">View Details</span>
+</div>
+</div>
+<div class="property-meta">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-accent-beige transition-colors">Sky Pavilion</h3>
+<p class="font-body-md text-on-surface-variant">New York, NY • $24,000,000</p>
+</div>
+</article>
+<!-- Property 3 -->
+<article class="property-card group cursor-pointer" data-property style="transition-delay: 240ms;">
+<div class="property-img-wrap aspect-[4/5] mb-6">
+<img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Terrace Oasis — a modern residence with tiered concrete terraces and a long infinity pool mirroring a deep blue evening sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKftAvIICzmL5sZUUOusX18YimDVuLSXudCcXkki9pCPXVLb-LPfqp0R47_40oI3chEJ-_ITM7LmQ5yWlbBKsm4UUCuRLtF7PBtKMxcVVharO9OlphWUBV33f9-GWikeK0UqeVcwN3-9b525NIpuRlAQNm6NBbshXhYt1JNrmeBMtWBPyv7Ldw87pZjx3Mf8yQae6mJah2To0H358vW_5bwB61-uTf0YDYM2iBaSseH2pUwmw4sI2EUlc1H-Ab0QLk0REo6mq0NJE"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-10">
+<span class="bg-white text-black px-6 py-3 font-label-md uppercase">View Details</span>
+</div>
+</div>
+<div class="property-meta">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-accent-beige transition-colors">Terrace Oasis</h3>
+<p class="font-body-md text-on-surface-variant">Austin, Texas • $12,900,000</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Horizontal Showcase -->
+<section id="projects" class="py-24 md:py-32 bg-surface-container-lowest overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop mb-16 showcase-card" data-showcase>
+<span class="font-label-md text-label-md text-accent-beige mb-4 block uppercase tracking-widest">Selected Projects</span>
+<h2 class="font-headline-lg text-headline-lg max-w-2xl">Crafting spaces that resonate with the human spirit.</h2>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar px-margin-mobile md:px-margin-desktop cursor-grab active:cursor-grabbing select-none" id="horizontal-scroll">
+<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase>
+<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Crystal Hub — close-up architectural detail of a glass skyscraper reflecting a clear sky, geometric glass-and-steel patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhYyLPOhXgp03dQN4B5Ytv3DpLZv7U514is625DYwQ420wKSoSVbWQHqzaB6wnrwCEBpVEL1cJ2UK_Dmez3GrOdTBEbhe-XIdTFiRRexSeZMHgVbkj7ywMBpi-QXXazVyGHeXmhgx_euj1kQLfQqeH5WLW6if4fYF-3iBTuNmstO6K4wwgNi9jqd_-vWV33gaEfnygTDye0gs_Ls59pwsy_uLqgYuX78DVWaMNlQ0Px4UIHIHiboErtHqH7QGIHTaRXE3mmyiUnI"/>
+<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
+<p class="font-label-md text-accent-beige uppercase mb-2">Project 04</p>
+<h4 class="font-headline-sm">Crystal Hub</h4>
+</figcaption>
+</figure>
+<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase style="transition-delay: 160ms;">
+<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Mono Studio — an open-plan minimalist gallery space with polished concrete floors, dark industrial accents and natural light from large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ2QmXOVA7snYpcKhm8r6ZmqN0T43-EujQ8BwiWqbx1pC5Dj8cnF_lTCpnOhiGgXytGWeMfyUtPb0H0UStXMdEd1OUBrt2TAzS0K6Tj8WfxXrQPUTOWBzRd0MkCsJBkHxpaR2dl6U26fmgcmXOZREi0xs3EpuQFQRTMd1x8QSUJrbWluUfAzcR2-byQ5FK9zp1hIimffRUawPia-qYNfyC4k5cRNsAKqbROoNawHhN3t2NU0KoRARUcGAEa7DwPozfQiKHjY-hGI"/>
+<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
+<p class="font-label-md text-accent-beige uppercase mb-2">Project 05</p>
+<h4 class="font-headline-sm">Mono Studio</h4>
+</figcaption>
+</figure>
+<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase style="transition-delay: 320ms;">
+<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Azure Heights — exterior of a luxury mediterranean villa with white walls, dark metal window frames, palm trees and a landscaped pool at late afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBRFWK5F8TXOkX4kzyI6tx7ujeC6N3EgVN28vbAzuWD-TsclV1PqrSidLA1zcjbMybvjPnAi42nYbnSO4qYKUtAqvfBwQPGHhheOp02sj7bCLbpUDFAIF0IiaevWiArkLjQD5dqjpgQ5ViEICZvDM0mHthidJ2SutMDC7HsBkOJx1YpFI_iA0MCUuEDw4GVqLjalsiswxY9VJOqxACCdpxetRwcDFCG6ZuCft7tCqEYUF06Kgj3IFvStn3f0LkNcfpl1sH6bSkxLY"/>
+<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
+<p class="font-label-md text-accent-beige uppercase mb-2">Project 06</p>
+<h4 class="font-headline-sm">Azure Heights</h4>
+</figcaption>
+</figure>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
+<div>
+<span class="font-label-md text-label-md text-accent-beige mb-6 block uppercase tracking-widest" data-about-line>Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg mb-8" data-about-headline>
+<span class="about-line"><span>The Art</span></span>
+<span class="about-line"><span>of Space.</span></span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed" data-about-line>
+                We believe architecture is more than just shelter—it is a vessel for life's most meaningful moments. Our studio focuses on the harmony between raw materials and natural light, creating environments that feel both grounded and ethereal.
+            </p>
+<div class="space-y-6" data-about-line>
+<div class="about-pill flex items-center gap-4 cursor-default">
+<div class="about-pill-line h-[1px] w-12 bg-accent-beige"></div>
+<span class="font-label-md uppercase">Sustainable Foundations</span>
+</div>
+<div class="about-pill flex items-center gap-4 cursor-default">
+<div class="about-pill-line h-[1px] w-12 bg-accent-beige"></div>
+<span class="font-label-md uppercase">Technological Integration</span>
+</div>
+<div class="about-pill flex items-center gap-4 cursor-default">
+<div class="about-pill-line h-[1px] w-12 bg-accent-beige"></div>
+<span class="font-label-md uppercase">Wellness Centric Design</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<img loading="lazy" alt="A close-up of layered raw architectural materials — board-formed concrete, smoked oak, brushed bronze and travertine — arranged in editorial composition" class="about-img-clip w-full aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBziUo4i7igPaoKW_Q5eJd2oullYL4BbH2LukNH5jxWt-zu7g5s8XhTzraJMP8Ji9wM-poeeaAFzlKpPS4XABZOJo-8l2QYtRhYH_sNBZW5EgkwW8OHcsUVLq8hPc-pNoGivvxKdDe0RVVi4Fh6aiKqySggh4C8T7D4vnnG7umv3pMxMsat0TItJUMdsHZ7hJ6YOEbM_7Hl3I9O_mzr_voj-LEtRYqEbnmlK3Hztgr6dkDltMOQtoJ0J_Y1pEZcUml3rvLQvEtoqtI"/>
+<div class="absolute -bottom-10 -left-10 bg-surface-container p-12 glass hidden lg:block">
+<div class="text-display-lg font-bold text-accent-beige leading-none">15+</div>
+<p class="font-label-md uppercase mt-2">Years of Excellence</p>
+</div>
+</div>
+</section>
+<!-- Process / Journey — Awwwards anchor: pinned scroll-scrub -->
+<section id="process" class="process-pin-wrap bg-surface-container-low">
+<div class="process-pin-inner px-margin-mobile md:px-margin-desktop">
+<div class="max-w-2xl mb-12 md:mb-16">
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-4 block">Our Process</span>
+<h2 class="font-headline-lg text-headline-lg">From inspiration to inhabitation in four considered steps.</h2>
+</div>
+<ol class="process-track grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 relative" id="process-track">
+<span class="process-progress" aria-hidden="true"></span>
+<li class="process-step" data-process-step>
+<div class="process-num">01</div>
+<h3 class="font-headline-sm mb-3 transition-colors duration-500">Discovery</h3>
+<p class="font-body-md text-on-surface-variant">A private consultation to map your vision, lifestyle, and the geographies that move you.</p>
+</li>
+<li class="process-step" data-process-step>
+<div class="process-num">02</div>
+<h3 class="font-headline-sm mb-3 transition-colors duration-500">Design</h3>
+<p class="font-body-md text-on-surface-variant">Concept renderings, material studies, and a hand-built physical model of your residence.</p>
+</li>
+<li class="process-step" data-process-step>
+<div class="process-num">03</div>
+<h3 class="font-headline-sm mb-3 transition-colors duration-500">Build</h3>
+<p class="font-body-md text-on-surface-variant">Climate-positive construction with bi-monthly site reports and architect-led milestone reviews.</p>
+</li>
+<li class="process-step" data-process-step>
+<div class="process-num">04</div>
+<h3 class="font-headline-sm mb-3 transition-colors duration-500">Inhabit</h3>
+<p class="font-body-md text-on-surface-variant">A two-year aftercare partnership covering systems, sourcing, and seasonal calibration.</p>
+</li>
+</ol>
+</div>
+</section>
+<!-- Amenities -->
+<section class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<article class="amenity-card glass p-10 md:p-12" data-amenity>
+<span class="amenity-icon material-symbols-outlined text-accent-beige text-5xl mb-8">eco</span>
+<h3 class="font-headline-sm mb-4">Sustainability</h3>
+<p class="font-body-md text-on-surface-variant">Net-zero carbon footprints and locally sourced raw materials for a responsible future.</p>
+</article>
+<article class="amenity-card glass p-10 md:p-12" data-amenity style="transition-delay: 160ms;">
+<span class="amenity-icon material-symbols-outlined text-accent-beige text-5xl mb-8">precision_manufacturing</span>
+<h3 class="font-headline-sm mb-4">Smart Tech</h3>
+<p class="font-body-md text-on-surface-variant">Seamlessly integrated home automation systems controlled through intuitive interfaces.</p>
+</article>
+<article class="amenity-card glass p-10 md:p-12" data-amenity style="transition-delay: 320ms;">
+<span class="amenity-icon material-symbols-outlined text-accent-beige text-5xl mb-8">self_improvement</span>
+<h3 class="font-headline-sm mb-4">Wellness</h3>
+<p class="font-body-md text-on-surface-variant">Circadian lighting and air purification systems designed to enhance your biological well-being.</p>
+</article>
+</div>
+</section>
+<!-- Cinematic Reel -->
+<section id="film" class="film-section relative overflow-hidden">
+<div class="film-parallax absolute inset-0 z-0">
+<img loading="lazy" class="w-full h-full object-cover opacity-70" alt="A cinematic dusk shot of a coastal modern residence with floor-to-ceiling glass walls glowing amber against a deep blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKftAvIICzmL5sZUUOusX18YimDVuLSXudCcXkki9pCPXVLb-LPfqp0R47_40oI3chEJ-_ITM7LmQ5yWlbBKsm4UUCuRLtF7PBtKMxcVVharO9OlphWUBV33f9-GWikeK0UqeVcwN3-9b525NIpuRlAQNm6NBbshXhYt1JNrmeBMtWBPyv7Ldw87pZjx3Mf8yQae6mJah2To0H358vW_5bwB61-uTf0YDYM2iBaSseH2pUwmw4sI2EUlc1H-Ab0QLk0REo6mq0NJE"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/95"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop py-28 md:py-44 max-w-3xl">
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-6 block" data-film-line>The Film</span>
+<h2 class="font-headline-lg text-headline-lg mb-8" data-film-headline>
+<span class="film-mask"><span>Cinematic studies of</span></span>
+<span class="film-mask"><span>the residences we build.</span></span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl" data-film-line>A 4-minute portrait of three commissions across Malibu, Reykjavík, and Singapore — shot in available light, captured in a single morning.</p>
+<button id="film-play" class="film-play group inline-flex items-center gap-5" aria-label="Play the studio film in full screen">
+<span class="film-play-circle">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</span>
+<span class="font-label-md uppercase tracking-[0.3em]">Play Reel · 4:12</span>
+</button>
+</div>
+</section>
+
+<!-- Cinematic Reel — Fullscreen Modal -->
+<div id="film-modal" class="film-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="ARCH-STUDIO film player">
+<button id="film-close" class="film-close" aria-label="Close film">
+<span class="material-symbols-outlined">close</span>
+</button>
+<video id="film-player" controls playsinline preload="metadata">
+<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4"/>
+</video>
+</div>
+<!-- Stats -->
+<section class="py-24 md:py-32 border-y border-white/5">
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="stat-block" data-stat>
+<div class="stat-number text-display-lg text-on-surface mb-2" data-count-to="420" data-count-suffix="">0</div>
+<p class="font-label-md text-accent-beige uppercase">Units Sold</p>
+</div>
+<div class="stat-block" data-stat style="transition-delay: 120ms;">
+<div class="stat-number text-display-lg text-on-surface mb-2" data-count-to="28" data-count-suffix="">0</div>
+<p class="font-label-md text-accent-beige uppercase">Design Awards</p>
+</div>
+<div class="stat-block" data-stat style="transition-delay: 240ms;">
+<div class="stat-number text-display-lg text-on-surface mb-2" data-count-to="12" data-count-suffix="">0</div>
+<p class="font-label-md text-accent-beige uppercase">Countries</p>
+</div>
+<div class="stat-block" data-stat style="transition-delay: 360ms;">
+<div class="stat-number text-display-lg text-on-surface mb-2" data-count-to="1.2" data-count-suffix="B" data-count-decimals="1">0</div>
+<p class="font-label-md text-accent-beige uppercase">Assets Under Management</p>
+</div>
+</div>
+</section>
+<!-- Press & Awards Marquee -->
+<section class="press-marquee py-16 md:py-20 border-b border-white/5 bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop mb-8 md:mb-10 flex items-center gap-4">
+<span class="h-[1px] w-12 bg-accent-beige"></span>
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest">As Featured In</span>
+</div>
+<div class="marquee-wrap">
+<div class="marquee-track" role="list" aria-label="Press features">
+<span class="marquee-item" role="listitem">ARCHITECTURAL DIGEST</span>
+<span class="marquee-item" role="listitem">DEZEEN</span>
+<span class="marquee-item" role="listitem">WALLPAPER*</span>
+<span class="marquee-item" role="listitem">DWELL</span>
+<span class="marquee-item" role="listitem">FRAME</span>
+<span class="marquee-item" role="listitem">DOMUS</span>
+<span class="marquee-item" role="listitem">MONOCLE</span>
+<span class="marquee-item" role="listitem">METROPOLIS</span>
+<span class="marquee-item" aria-hidden="true">ARCHITECTURAL DIGEST</span>
+<span class="marquee-item" aria-hidden="true">DEZEEN</span>
+<span class="marquee-item" aria-hidden="true">WALLPAPER*</span>
+<span class="marquee-item" aria-hidden="true">DWELL</span>
+<span class="marquee-item" aria-hidden="true">FRAME</span>
+<span class="marquee-item" aria-hidden="true">DOMUS</span>
+<span class="marquee-item" aria-hidden="true">MONOCLE</span>
+<span class="marquee-item" aria-hidden="true">METROPOLIS</span>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto text-center mb-20 testimonial-card" data-testimonial>
+<h2 class="font-headline-lg mb-6">Client Perspectives</h2>
+<div class="h-1 w-20 bg-accent-beige mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-desktop">
+<blockquote class="testimonial-card p-10 md:p-12 bg-surface-container-high relative" data-testimonial>
+<span class="testimonial-quote text-8xl text-white/10 absolute top-4 left-4 font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>
+<p class="text-headline-sm mb-8 relative z-10">ARCH-STUDIO didn't just build us a home; they created a sanctuary. The way they manipulate light throughout the day is pure poetry.</p>
+<footer class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-label-md">Julian Vance</p>
+<p class="text-sm text-on-surface-variant">Founder, Vance Capital</p>
+</div>
+</footer>
+</blockquote>
+<blockquote class="testimonial-card p-10 md:p-12 bg-surface-container-high relative" data-testimonial style="transition-delay: 200ms;">
+<span class="testimonial-quote text-8xl text-white/10 absolute top-4 left-4 font-serif leading-none select-none" aria-hidden="true">&ldquo;</span>
+<p class="text-headline-sm mb-8 relative z-10">The level of detail and material honesty in our Malibu property is unprecedented. It stands as a testament to modern luxury.</p>
+<footer class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-label-md">Sarah Al-Fayed</p>
+<p class="text-sm text-on-surface-variant">Principal Architect, AF Collective</p>
+</div>
+</footer>
+</blockquote>
+</div>
+</section>
+<!-- Journal / Insights -->
+<section id="journal" class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
+<div>
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-4 block">Journal</span>
+<h2 class="font-headline-lg text-headline-lg">Latest Insights</h2>
+</div>
+<a class="text-on-surface-variant hover:text-on-surface flex items-center gap-2 group self-start md:self-end" href="#journal">
+                View All Articles
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<article class="journal-card from-left group cursor-pointer" data-journal>
+<div class="journal-img-wrap aspect-[5/4] mb-6">
+<img loading="lazy" class="journal-img" alt="A close-up of board-formed concrete showing the imprint of the timber boards used as formwork — texture, grain and tool marks visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhUXrYbBpXDWDrthjKUeD8vTb737vSS4h5J9DPNQcFmmYxofXWVf-qOwz5SjYvgpluAzNdgEZasdWXTh4vFiJm0J8s3aZMgW1RqPran6NBbikQ3GYbf4rcIQyP4rCXZasuZkOPRkyNZPa5gIW0pLKb3rkbpimIjFaP9FpuHqD8rX8E_4caqGEgf8rTxtpXECNuJ12ZZXK_MmwxlK3GZ6hdduNKToTQhhphHSUiXHDjhPR9w-p04lvkaPknCzkAdw85leXxH_-AsuQ"/>
+</div>
+<span class="font-label-md text-accent-beige uppercase tracking-widest mb-3 block">Field Notes</span>
+<h3 class="font-headline-sm mb-3">The Honest Material</h3>
+<p class="font-body-md text-on-surface-variant mb-4">On board-formed concrete and the case for visible labour — why we leave the seams.</p>
+<span class="font-label-md text-on-surface-variant">04 Apr 2026 · 7 min read</span>
+</article>
+<article class="journal-card from-top group cursor-pointer" data-journal style="transition-delay: 140ms;">
+<div class="journal-img-wrap aspect-[5/4] mb-6">
+<img loading="lazy" class="journal-img" alt="A wide shot of a coastal modern villa exterior at dawn, with low fog rolling across the landscape and a single window glowing amber" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKftAvIICzmL5sZUUOusX18YimDVuLSXudCcXkki9pCPXVLb-LPfqp0R47_40oI3chEJ-_ITM7LmQ5yWlbBKsm4UUCuRLtF7PBtKMxcVVharO9OlphWUBV33f9-GWikeK0UqeVcwN3-9b525NIpuRlAQNm6NBbshXhYt1JNrmeBMtWBPyv7Ldw87pZjx3Mf8yQae6mJah2To0H358vW_5bwB61-uTf0YDYM2iBaSseH2pUwmw4sI2EUlc1H-Ab0QLk0REo6mq0NJE"/>
+</div>
+<span class="font-label-md text-accent-beige uppercase tracking-widest mb-3 block">In Conversation</span>
+<h3 class="font-headline-sm mb-3">Designing for Climate</h3>
+<p class="font-body-md text-on-surface-variant mb-4">A studio conversation on passive cooling, thermal mass, and the residences of the next decade.</p>
+<span class="font-label-md text-on-surface-variant">22 Mar 2026 · 12 min read</span>
+</article>
+<article class="journal-card from-right group cursor-pointer" data-journal style="transition-delay: 280ms;">
+<div class="journal-img-wrap aspect-[5/4] mb-6">
+<img loading="lazy" class="journal-img" alt="An open-plan minimalist living room with polished concrete floor, a single olive tree in a pot, and morning light spilling through floor-to-ceiling glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ2QmXOVA7snYpcKhm8r6ZmqN0T43-EujQ8BwiWqbx1pC5Dj8cnF_lTCpnOhiGgXytGWeMfyUtPb0H0UStXMdEd1OUBrt2TAzS0K6Tj8WfxXrQPUTOWBzRd0MkCsJBkHxpaR2dl6U26fmgcmXOZREi0xs3EpuQFQRTMd1x8QSUJrbWluUfAzcR2-byQ5FK9zp1hIimffRUawPia-qYNfyC4k5cRNsAKqbROoNawHhN3t2NU0KoRARUcGAEa7DwPozfQiKHjY-hGI"/>
+</div>
+<span class="font-label-md text-accent-beige uppercase tracking-widest mb-3 block">Essay</span>
+<h3 class="font-headline-sm mb-3">The Luxury of Light</h3>
+<p class="font-body-md text-on-surface-variant mb-4">A study of orientation — and why the most expensive thing in a residence is the angle of the sun.</p>
+<span class="font-label-md text-on-surface-variant">09 Mar 2026 · 9 min read</span>
+</article>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 md:py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-24 max-w-max-width mx-auto">
+<div>
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-4 block" data-faq-line>FAQ</span>
+<h2 class="font-headline-lg text-headline-lg mb-6" data-faq-line>Questions, considered.</h2>
+<p class="font-body-md text-on-surface-variant max-w-md" data-faq-line>Have something else on your mind? <a href="#contact" class="text-accent-beige border-b border-accent-beige pb-0.5 hover:opacity-80 transition-opacity">Speak with our concierge</a>.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item" data-faq>
+<button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+<span class="font-headline-sm">What is the typical lead time on a commission?</span>
+<span class="faq-icon material-symbols-outlined" aria-hidden="true">add</span>
+</button>
+<div class="faq-content" id="faq-1" role="region">
+<div>
+<p>Most commissions move from discovery to keys-in-hand in 22–34 months, depending on jurisdiction, site complexity, and material sourcing. Penthouse renovations typically resolve faster; ground-up coastal residences sit at the longer end of that range.</p>
+</div>
+</div>
+</div>
+<div class="faq-item" data-faq style="transition-delay: 80ms;">
+<button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+<span class="font-headline-sm">Do you work outside of your published locations?</span>
+<span class="faq-icon material-symbols-outlined" aria-hidden="true">add</span>
+</button>
+<div class="faq-content" id="faq-2" role="region">
+<div>
+<p>Yes. Our published portfolio reflects projects we are at liberty to show. We have completed commissions across 12 countries; the majority of our active work is under NDA. Geography is rarely a constraint.</p>
+</div>
+</div>
+</div>
+<div class="faq-item" data-faq style="transition-delay: 160ms;">
+<button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+<span class="font-headline-sm">How is sustainability measured in your projects?</span>
+<span class="faq-icon material-symbols-outlined" aria-hidden="true">add</span>
+</button>
+<div class="faq-content" id="faq-3" role="region">
+<div>
+<p>Every residence is delivered with a third-party-verified life-cycle assessment covering embodied carbon, operational energy, water re-use and material provenance. We do not market a project as climate-positive until the assessment confirms it.</p>
+</div>
+</div>
+</div>
+<div class="faq-item" data-faq style="transition-delay: 240ms;">
+<button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+<span class="font-headline-sm">Can we visit a completed residence before commissioning?</span>
+<span class="faq-icon material-symbols-outlined" aria-hidden="true">add</span>
+</button>
+<div class="faq-content" id="faq-4" role="region">
+<div>
+<p>When our clients consent — which they often do — we arrange private walkthroughs of completed work. These visits are by introduction only and never advertised publicly.</p>
+</div>
+</div>
+</div>
+<div class="faq-item" data-faq style="transition-delay: 320ms;">
+<button class="faq-trigger" aria-expanded="false" aria-controls="faq-5">
+<span class="font-headline-sm">What does the studio not do?</span>
+<span class="faq-icon material-symbols-outlined" aria-hidden="true">add</span>
+</button>
+<div class="faq-content" id="faq-5" role="region">
+<div>
+<p>We do not take on speculative developer work, hospitality at scale, or projects where the budget is incompatible with the brief. Honesty about fit, early, saves everyone time.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section id="inquire" class="cta-final relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img loading="lazy" class="cta-bg-img w-full h-full object-cover" alt="A wide architectural still of a minimalist concrete villa terraced into a hillside at golden hour, with long shadows raking across the structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTwgZVYqdD3XiXsWoXSbGjO-VRjjeWBh5TSeugd6zyQ-QS3r9ae7Twx-PUzMjyPojYg4uxcxPG09UShvwyzp3uafeTFfFMos06qRlaqyI8pleXMcCGTwuzMbflagg6C7WPb3h6JVR8XA9NZuePKEp-6s0QWaLpq_wo6zXCU9dYqWZtq-hgzNjxNKM89ckAjoxCQ9w05ujCj4kPb_cyg9oVx2uvFdbreFZBGnenBL-_w9VtWegvEGX9b2-5taK8TbnLEUy35NQD0Ew"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop py-28 md:py-44 max-w-3xl">
+<span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-6 block" data-cta-line>Begin</span>
+<h2 class="cta-glitch font-headline-lg text-headline-lg mb-8" data-cta-headline data-text="Your residence is waiting.">Your residence is waiting.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl" data-cta-line style="transition-delay: 0.2s;">Schedule a private architectural consultation. Conversations are confidential, unhurried, and entirely on your terms.</p>
+<form id="cta-form" class="flex flex-wrap gap-4 max-w-xl" novalidate data-cta-line style="transition-delay: 0.35s;">
+<label for="cta-email" class="sr-only">Email address</label>
+<input id="cta-email" name="email" type="email" required class="flex-1 min-w-[240px] bg-surface-container-high border-none px-6 py-4 focus:ring-1 focus:ring-accent-beige" placeholder="your.name@private.com"/>
+<button type="submit" class="magnetic-btn bg-primary text-on-primary px-8 py-4 font-label-md uppercase hover:bg-white transition-colors">Request Consultation</button>
+<p id="cta-msg" class="w-full font-label-md text-accent-beige opacity-0 transition-opacity duration-500" aria-live="polite">Thank you — a member of the studio will be in touch within 48 hours.</p>
+</form>
+</div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="bg-surface-container-lowest pt-24 md:pt-32 pb-12 border-t border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop mb-24 md:mb-32">
+<div class="md:col-span-2 footer-rise" data-footer>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mb-8">ARCH-STUDIO</div>
+<p class="max-w-md text-on-surface-variant mb-12">
+                    Leading the vanguard of architectural design and premium real estate development. We create the benchmarks for tomorrow.
+                </p>
+<form id="newsletter-form" class="flex max-w-md gap-4" novalidate>
+<label for="newsletter-email" class="sr-only">Email for newsletter</label>
+<input id="newsletter-email" name="email" class="flex-1 bg-surface-container-high border-none px-6 py-4 focus:ring-1 focus:ring-accent-beige" placeholder="Email Newsletter" type="email" required/>
+<button type="submit" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-white transition-colors">Join</button>
+</form>
+<p id="newsletter-msg" class="mt-4 font-label-md text-accent-beige opacity-0 transition-opacity duration-500" aria-live="polite">Thank you — we'll be in touch.</p>
+</div>
+<div class="footer-rise" data-footer style="transition-delay: 100ms;">
+<h4 class="font-label-md text-on-surface mb-8 uppercase">Explore</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#properties">Properties</a></li>
+<li><a class="hover:text-primary transition-colors" href="#projects">Projects</a></li>
+<li><a class="hover:text-primary transition-colors" href="#contact">Newsletter</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="footer-rise" data-footer style="transition-delay: 200ms;">
+<h4 class="font-label-md text-on-surface mb-8 uppercase">Connect</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 text-on-surface-variant font-label-md">
+<span>© 2026 ARCH-STUDIO. Excellence in Architecture.</span>
+<div class="flex gap-4 md:gap-8">
+<span>Designed in Malibu</span>
+<span>Constructed Worldwide</span>
+</div>
+</div>
+</footer>
+<script>
+        (() => {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // ---------- 1. Nav: logo letter stagger on load ----------
+            const logo = document.getElementById('nav-logo');
+            if (logo) {
+                const text = 'ARCH-STUDIO';
+                logo.innerHTML = '';
+                [...text].forEach((ch, i) => {
+                    const s = document.createElement('span');
+                    s.className = 'nav-letter';
+                    s.textContent = ch === '-' ? '‑' : ch;
+                    s.style.animationDelay = (0.05 * i + 0.1) + 's';
+                    logo.appendChild(s);
+                });
+            }
+
+            // ---------- Nav: scroll glow ----------
+            const nav = document.getElementById('main-nav');
+            const onScroll = () => {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // ---------- Mobile menu ----------
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const setMenu = (open) => {
+                mobileMenu.classList.toggle('open', open);
+                mobileMenu.setAttribute('aria-hidden', String(!open));
+                menuBtn.setAttribute('aria-expanded', String(open));
+                menuBtn.textContent = open ? 'close' : 'menu';
+                document.body.style.overflow = open ? 'hidden' : '';
+            };
+            menuBtn?.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+            mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+            // ---------- Universal IO factory ----------
+            const makeObserver = (cb, options = {}) =>
+                new IntersectionObserver((entries, obs) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            cb(e.target);
+                            obs.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px', ...options });
+
+            // ---------- 3. Properties: 3D tilt + slat reveal ----------
+            const propertyIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-property]').forEach(el => propertyIO.observe(el));
+
+            // ---------- 4. Showcase: slide-in from right ----------
+            const showcaseIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-showcase]').forEach(el => showcaseIO.observe(el));
+
+            // ---------- 5. About: line reveal + image clip ----------
+            const aboutHeadlineIO = makeObserver(el => {
+                el.querySelectorAll('.about-line').forEach(line => line.classList.add('in'));
+            });
+            document.querySelectorAll('[data-about-headline]').forEach(el => aboutHeadlineIO.observe(el));
+            const aboutLineIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-about-line]').forEach(el => aboutLineIO.observe(el));
+            const aboutImgIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('.about-img-clip').forEach(el => aboutImgIO.observe(el));
+
+            // ---------- 6. Amenities: 3D flip ----------
+            const amenityIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-amenity]').forEach(el => amenityIO.observe(el));
+
+            // ---------- 7. Stats: count-up + underline ----------
+            const animateCount = (el) => {
+                const target = parseFloat(el.dataset.countTo);
+                const decimals = parseInt(el.dataset.countDecimals || '0', 10);
+                const suffix = el.dataset.countSuffix || '';
+                const duration = 1600;
+                const start = performance.now();
+                const ease = (t) => 1 - Math.pow(1 - t, 3);
+                const tick = (now) => {
+                    const t = Math.min(1, (now - start) / duration);
+                    const v = target * ease(t);
+                    el.textContent = (decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString()) + suffix;
+                    if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            };
+            const statIO = makeObserver(block => {
+                block.classList.add('in');
+                const num = block.querySelector('[data-count-to]');
+                if (num) reduceMotion
+                    ? (num.textContent = (parseFloat(num.dataset.countTo).toFixed(parseInt(num.dataset.countDecimals||'0',10))) + (num.dataset.countSuffix || ''))
+                    : animateCount(num);
+            });
+            document.querySelectorAll('[data-stat]').forEach(el => statIO.observe(el));
+
+            // ---------- 8. Testimonials ----------
+            const testimonialIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-testimonial]').forEach(el => testimonialIO.observe(el));
+
+            // ---------- 9. Footer: wave rise ----------
+            const footerIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-footer]').forEach(el => footerIO.observe(el));
+
+            // ---------- 10. Process: reveal-on-enter (GSAP pin handles the rest) ----------
+            const processIO = makeObserver(track => {
+                track.classList.add('in');
+                track.querySelectorAll('.process-step').forEach(s => s.classList.add('in'));
+            });
+            document.querySelectorAll('.process-track').forEach(t => processIO.observe(t));
+
+            // ---------- Anchor moment: Custom cursor + magnetic buttons ----------
+            const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+            if (!reduceMotion && !isTouch) {
+                const dot = document.querySelector('.cursor-dot');
+                const ring = document.querySelector('.cursor-ring');
+                if (dot && ring) {
+                    let dotX = innerWidth / 2, dotY = innerHeight / 2;
+                    let ringX = dotX, ringY = dotY;
+                    let targetX = dotX, targetY = dotY;
+                    const lerp = (a, b, n) => a + (b - a) * n;
+                    addEventListener('pointermove', (e) => { targetX = e.clientX; targetY = e.clientY; }, { passive: true });
+                    const tick = () => {
+                        dotX = lerp(dotX, targetX, 0.55);
+                        dotY = lerp(dotY, targetY, 0.55);
+                        ringX = lerp(ringX, targetX, 0.18);
+                        ringY = lerp(ringY, targetY, 0.18);
+                        dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%,-50%)`;
+                        ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+                        requestAnimationFrame(tick);
+                    };
+                    tick();
+                    const interactive = 'a, button, [data-property], [data-journal], [data-faq], #horizontal-scroll';
+                    document.querySelectorAll(interactive).forEach(el => {
+                        el.addEventListener('pointerenter', () => {
+                            document.body.classList.add('cursor-hover');
+                            if (el.id === 'horizontal-scroll') {
+                                document.body.classList.add('cursor-label'); ring.textContent = 'DRAG';
+                            } else if (el.id === 'film-play') {
+                                document.body.classList.add('cursor-label'); ring.textContent = 'PLAY';
+                            }
+                        });
+                        el.addEventListener('pointerleave', () => {
+                            document.body.classList.remove('cursor-hover', 'cursor-label');
+                            ring.textContent = '';
+                        });
+                    });
+                }
+                document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                    const strength = 0.18;
+                    btn.addEventListener('pointermove', (e) => {
+                        const r = btn.getBoundingClientRect();
+                        const x = e.clientX - (r.left + r.width / 2);
+                        const y = e.clientY - (r.top + r.height / 2);
+                        btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+                    });
+                    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+                });
+            }
+
+            // ---------- Anchor moment: Lenis smooth scroll + Process pinned scroll-scrub ----------
+            if (!reduceMotion) {
+                const waitForLibs = (cb) => {
+                    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof Lenis !== 'undefined') return cb();
+                    setTimeout(() => waitForLibs(cb), 40);
+                };
+                waitForLibs(() => {
+                    gsap.registerPlugin(ScrollTrigger);
+                    const lenis = new Lenis({
+                        duration: 1.2,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                        smoothWheel: true
+                    });
+                    lenis.on('scroll', ScrollTrigger.update);
+                    gsap.ticker.add((time) => lenis.raf(time * 1000));
+                    gsap.ticker.lagSmoothing(0);
+
+                    // Process pinned scrub (desktop only)
+                    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+                    const steps = gsap.utils.toArray('#process-track [data-process-step]');
+                    const progressEl = document.querySelector('.process-progress');
+                    if (isDesktop && steps.length && progressEl) {
+                        // Real child element for width animation (CSS ::after can't be driven from JS)
+                        const fill = document.createElement('span');
+                        fill.style.cssText = 'position:absolute;left:0;top:0;bottom:0;width:0;background:#e2c195;';
+                        progressEl.appendChild(fill);
+                        ScrollTrigger.create({
+                            trigger: '#process',
+                            start: 'top top',
+                            end: () => `+=${innerHeight * (steps.length - 0.4)}`,
+                            scrub: 0.6,
+                            onUpdate: (self) => {
+                                const p = self.progress;
+                                const idx = Math.min(steps.length - 1, Math.floor(p * steps.length));
+                                steps.forEach((s, i) => s.classList.toggle('active', i <= idx));
+                                fill.style.width = (p * 100) + '%';
+                            }
+                        });
+                    }
+                });
+            }
+
+            // ---------- 11. Cinematic Reel: parallax + headline mask + modal ----------
+            const filmLineIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-film-line], [data-film-headline]').forEach(el => filmLineIO.observe(el));
+
+            const filmModal = document.getElementById('film-modal');
+            const filmPlayer = document.getElementById('film-player');
+            const openFilm = () => {
+                if (!filmModal || !filmPlayer) return;
+                filmModal.classList.add('open');
+                filmModal.setAttribute('aria-hidden', 'false');
+                filmPlayer.currentTime = 0;
+                filmPlayer.play().catch(() => {});
+                document.body.style.overflow = 'hidden';
+            };
+            const closeFilm = () => {
+                if (!filmModal || !filmPlayer) return;
+                filmModal.classList.remove('open');
+                filmModal.setAttribute('aria-hidden', 'true');
+                filmPlayer.pause();
+                document.body.style.overflow = '';
+            };
+            document.getElementById('film-play')?.addEventListener('click', openFilm);
+            document.getElementById('film-close')?.addEventListener('click', closeFilm);
+            filmModal?.addEventListener('click', (e) => { if (e.target === filmModal) closeFilm(); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && filmModal?.classList.contains('open')) closeFilm();
+            });
+
+            // Parallax for cinematic reel
+            const parallax = document.querySelector('.film-parallax');
+            if (parallax && !reduceMotion) {
+                let ticking = false;
+                const updateParallax = () => {
+                    const rect = parallax.parentElement.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    if (rect.bottom < 0 || rect.top > vh) { ticking = false; return; }
+                    const offset = (rect.top - vh) * 0.18;
+                    parallax.style.transform = `translate3d(0, ${-offset}px, 0)`;
+                    ticking = false;
+                };
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                }, { passive: true });
+                updateParallax();
+            }
+
+            // ---------- 13. Journal: multi-direction clip-path reveal ----------
+            const journalIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-journal]').forEach(el => journalIO.observe(el));
+
+            // ---------- 14. FAQ: line reveal + accordion ----------
+            const faqLineIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-faq-line], [data-faq]').forEach(el => faqLineIO.observe(el));
+
+            document.querySelectorAll('.faq-trigger').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const opening = !item.classList.contains('open');
+                    item.classList.toggle('open', opening);
+                    btn.setAttribute('aria-expanded', String(opening));
+                });
+            });
+
+            // ---------- 15. Final CTA: glitch headline + form ----------
+            const ctaLineIO = makeObserver(el => el.classList.add('in'));
+            document.querySelectorAll('[data-cta-line], [data-cta-headline]').forEach(el => ctaLineIO.observe(el));
+
+            const ctaForm = document.getElementById('cta-form');
+            const ctaMsg = document.getElementById('cta-msg');
+            ctaForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = document.getElementById('cta-email');
+                if (!input.value || !input.checkValidity()) {
+                    input.focus();
+                    return;
+                }
+                ctaMsg.classList.remove('opacity-0');
+                input.value = '';
+                setTimeout(() => ctaMsg.classList.add('opacity-0'), 5000);
+            });
+
+            // ---------- Horizontal scroll drag (mouse + touch) ----------
+            const slider = document.getElementById('horizontal-scroll');
+            if (slider) {
+                let isDown = false, startX = 0, scrollLeft = 0;
+                const begin = (x) => { isDown = true; startX = x; scrollLeft = slider.scrollLeft; };
+                const move = (x, e) => {
+                    if (!isDown) return;
+                    if (e?.cancelable) e.preventDefault();
+                    slider.scrollLeft = scrollLeft - (x - startX) * 1.6;
+                };
+                const end = () => { isDown = false; };
+                slider.addEventListener('mousedown', e => begin(e.pageX));
+                slider.addEventListener('mousemove', e => move(e.pageX, e));
+                slider.addEventListener('mouseleave', end);
+                slider.addEventListener('mouseup', end);
+                slider.addEventListener('touchstart', e => begin(e.touches[0].pageX), { passive: true });
+                slider.addEventListener('touchmove', e => move(e.touches[0].pageX, e), { passive: false });
+                slider.addEventListener('touchend', end);
+            }
+
+            // ---------- Newsletter form ----------
+            const nlForm = document.getElementById('newsletter-form');
+            const nlMsg = document.getElementById('newsletter-msg');
+            nlForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = document.getElementById('newsletter-email');
+                if (!input.value || !input.checkValidity()) {
+                    input.focus();
+                    return;
+                }
+                nlMsg.classList.remove('opacity-0');
+                input.value = '';
+                setTimeout(() => nlMsg.classList.add('opacity-0'), 4000);
+            });
+
+            // ---------- Smooth anchor scroll ----------
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const id = a.getAttribute('href');
+                    if (id.length <= 1) return;
+                    const target = document.querySelector(id);
+                    if (!target) return;
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+                });
+            });
+        })();
+    </script>
+</body></html>
