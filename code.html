@@ -153,6 +153,10 @@
         }
         #main-nav.scrolled .nav-row { height: 4.5rem; }
         .nav-row { height: 5.5rem; transition: height 0.6s cubic-bezier(0.22,1,0.36,1); }
+        /* Anchor links land below the fixed nav, not behind it.
+           Nav is 5.5rem (88px) at rest, 4.5rem (72px) when scrolled — using 6rem covers both. */
+        html { scroll-padding-top: 6rem; }
+        section[id] { scroll-margin-top: 6rem; }
 
         /* ============================================================
            SECTION 2 · HERO — Ken Burns + word-mask text reveal + filter slide
