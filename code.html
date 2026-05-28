@@ -285,6 +285,70 @@
         }
         .showcase-card:hover .showcase-caption { opacity: 1; transform: translateY(0); }
 
+        /* SELECTED PROJECTS — full-viewport (100vh × 100vw) sticky horizontal scroll
+           Cards fill viewport; header + nav are absolute overlays on top */
+        .projects-section { position: relative; }
+        .projects-pin-wrap { position: relative; }
+        .projects-pin-inner { position: relative; }
+        .projects-track-wrap { overflow: hidden; }
+        .projects-track { will-change: transform; }
+        /* Captions on the full-screen cards are always visible — no hover gating */
+        .project-caption {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        /* Override the inherited .showcase-card initial state so the cards always show */
+        .projects-track .showcase-card {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .projects-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: 0; padding: 0; cursor: pointer;
+            transition: background 0.4s cubic-bezier(0.22,1,0.36,1),
+                        width 0.4s cubic-bezier(0.22,1,0.36,1),
+                        border-radius 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        .projects-dot.active {
+            background: #e2c195;
+            width: 28px;
+            border-radius: 6px;
+        }
+        .projects-dot:hover { background: rgba(226, 193, 149, 0.8); }
+        .projects-arrow {
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .projects-arrow:hover { background: #e2c195; color: #131313; border-color: #e2c195; }
+        .projects-arrow:active { transform: scale(0.96); }
+        @media (min-width: 768px) {
+            /* wrap height = N × viewport-height (3 cards → 300vh). 100vh fits the sticky display window;
+               remaining 200vh drives the horizontal transform via JS. */
+            .projects-pin-wrap { height: 300vh; }
+            .projects-pin-inner {
+                position: sticky; top: 0;
+                height: 100vh;
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .projects-pin-wrap { height: auto !important; }
+            .projects-pin-inner { position: static !important; height: auto !important; overflow: visible !important; }
+            .projects-track { transform: none !important; }
+            .projects-track-wrap { overflow-x: auto !important; }
+        }
+
         /* ============================================================
            SECTION 5 · ABOUT — line-by-line headline + image clip-path
            ============================================================ */
@@ -807,11 +871,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
 </div>
 <div class="relative z-10 px-margin-mobile md:px-margin-desktop mb-16 md:mb-24 max-w-5xl">
-<span class="hero-eyebrow font-label-md text-label-md text-accent-beige uppercase tracking-[0.3em] mb-8">
-<span class="dot" aria-hidden="true"></span>
-Now Reserving · Collection 02
-</span>
-<h1 class="text-on-surface leading-[1.02] mt-6 mb-8 text-[clamp(2.5rem,8.5vw,5.5rem)] font-display-xl font-semibold tracking-tight">
+<h1 class="text-on-surface leading-[1.02] mb-8 text-[clamp(2.5rem,8.5vw,5.5rem)] font-display-xl font-semibold tracking-tight">
 <span class="hero-line"><span class="hero-word delay-1">Redefining</span></span>
 <span class="hero-line"><span class="hero-word delay-2">Architectural</span></span>
 <span class="hero-line"><span class="hero-word delay-3"><span class="hero-accent">Living.</span></span></span>
@@ -917,34 +977,59 @@ Now Reserving · Collection 02
 </article>
 </div>
 </section>
-<!-- Horizontal Showcase -->
-<section id="projects" class="py-24 md:py-32 bg-surface-container-lowest overflow-hidden">
-<div class="px-margin-mobile md:px-margin-desktop mb-16 showcase-card" data-showcase>
-<span class="font-label-md text-label-md text-accent-beige mb-4 block uppercase tracking-widest">Selected Projects</span>
-<h2 class="font-headline-lg text-headline-lg max-w-2xl">Crafting spaces that resonate with the human spirit.</h2>
+<!-- Selected Projects — full-viewport (100vh × 100vw) sticky horizontal scroll -->
+<section id="projects" class="projects-section bg-surface-container-lowest">
+<div class="projects-pin-wrap">
+<div class="projects-pin-inner">
+<!-- Shared header overlay (top-left) -->
+<div class="projects-header-overlay absolute top-8 left-margin-mobile md:top-16 md:left-margin-desktop z-20 max-w-3xl pointer-events-none">
+<span class="font-label-md text-label-md text-accent-beige mb-3 block uppercase tracking-widest drop-shadow-lg">Selected Projects</span>
+<h2 class="font-headline-md text-2xl md:text-headline-lg text-white drop-shadow-2xl leading-tight">Crafting spaces that resonate with the human spirit.</h2>
 </div>
-<div class="flex gap-8 overflow-x-auto no-scrollbar px-margin-mobile md:px-margin-desktop cursor-grab active:cursor-grabbing select-none" id="horizontal-scroll">
-<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase>
-<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Crystal Hub — close-up architectural detail of a glass skyscraper reflecting a clear sky, geometric glass-and-steel patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhYyLPOhXgp03dQN4B5Ytv3DpLZv7U514is625DYwQ420wKSoSVbWQHqzaB6wnrwCEBpVEL1cJ2UK_Dmez3GrOdTBEbhe-XIdTFiRRexSeZMHgVbkj7ywMBpi-QXXazVyGHeXmhgx_euj1kQLfQqeH5WLW6if4fYF-3iBTuNmstO6K4wwgNi9jqd_-vWV33gaEfnygTDye0gs_Ls59pwsy_uLqgYuX78DVWaMNlQ0Px4UIHIHiboErtHqH7QGIHTaRXE3mmyiUnI"/>
-<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
-<p class="font-label-md text-accent-beige uppercase mb-2">Project 04</p>
-<h4 class="font-headline-sm">Crystal Hub</h4>
+<!-- Cards track: each card is 100vw × 100vh -->
+<div class="projects-track-wrap">
+<div class="projects-track flex gap-0 overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory md:snap-none select-none" id="horizontal-scroll">
+<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<img loading="eager" class="absolute inset-0 w-full h-full object-cover" alt="Crystal Hub — close-up architectural detail of a glass skyscraper reflecting a clear sky, geometric glass-and-steel patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhYyLPOhXgp03dQN4B5Ytv3DpLZv7U514is625DYwQ420wKSoSVbWQHqzaB6wnrwCEBpVEL1cJ2UK_Dmez3GrOdTBEbhe-XIdTFiRRexSeZMHgVbkj7ywMBpi-QXXazVyGHeXmhgx_euj1kQLfQqeH5WLW6if4fYF-3iBTuNmstO6K4wwgNi9jqd_-vWV33gaEfnygTDye0gs_Ls59pwsy_uLqgYuX78DVWaMNlQ0Px4UIHIHiboErtHqH7QGIHTaRXE3mmyiUnI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
+<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 04</p>
+<h4 class="font-headline-md text-2xl md:text-4xl text-white">Crystal Hub</h4>
 </figcaption>
 </figure>
-<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase style="transition-delay: 160ms;">
-<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Mono Studio — an open-plan minimalist gallery space with polished concrete floors, dark industrial accents and natural light from large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ2QmXOVA7snYpcKhm8r6ZmqN0T43-EujQ8BwiWqbx1pC5Dj8cnF_lTCpnOhiGgXytGWeMfyUtPb0H0UStXMdEd1OUBrt2TAzS0K6Tj8WfxXrQPUTOWBzRd0MkCsJBkHxpaR2dl6U26fmgcmXOZREi0xs3EpuQFQRTMd1x8QSUJrbWluUfAzcR2-byQ5FK9zp1hIimffRUawPia-qYNfyC4k5cRNsAKqbROoNawHhN3t2NU0KoRARUcGAEa7DwPozfQiKHjY-hGI"/>
-<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
-<p class="font-label-md text-accent-beige uppercase mb-2">Project 05</p>
-<h4 class="font-headline-sm">Mono Studio</h4>
+<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<img loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Mono Studio — an open-plan minimalist gallery space with polished concrete floors, dark industrial accents and natural light from large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ2QmXOVA7snYpcKhm8r6ZmqN0T43-EujQ8BwiWqbx1pC5Dj8cnF_lTCpnOhiGgXytGWeMfyUtPb0H0UStXMdEd1OUBrt2TAzS0K6Tj8WfxXrQPUTOWBzRd0MkCsJBkHxpaR2dl6U26fmgcmXOZREi0xs3EpuQFQRTMd1x8QSUJrbWluUfAzcR2-byQ5FK9zp1hIimffRUawPia-qYNfyC4k5cRNsAKqbROoNawHhN3t2NU0KoRARUcGAEa7DwPozfQiKHjY-hGI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
+<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 05</p>
+<h4 class="font-headline-md text-2xl md:text-4xl text-white">Mono Studio</h4>
 </figcaption>
 </figure>
-<figure class="showcase-card min-w-[80vw] md:min-w-[45vw] aspect-video relative group" data-showcase style="transition-delay: 320ms;">
-<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none" alt="Azure Heights — exterior of a luxury mediterranean villa with white walls, dark metal window frames, palm trees and a landscaped pool at late afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBRFWK5F8TXOkX4kzyI6tx7ujeC6N3EgVN28vbAzuWD-TsclV1PqrSidLA1zcjbMybvjPnAi42nYbnSO4qYKUtAqvfBwQPGHhheOp02sj7bCLbpUDFAIF0IiaevWiArkLjQD5dqjpgQ5ViEICZvDM0mHthidJ2SutMDC7HsBkOJx1YpFI_iA0MCUuEDw4GVqLjalsiswxY9VJOqxACCdpxetRwcDFCG6ZuCft7tCqEYUF06Kgj3IFvStn3f0LkNcfpl1sH6bSkxLY"/>
-<figcaption class="showcase-caption absolute bottom-6 left-6 md:bottom-10 md:left-10 glass p-6">
-<p class="font-label-md text-accent-beige uppercase mb-2">Project 06</p>
-<h4 class="font-headline-sm">Azure Heights</h4>
+<figure class="showcase-card snap-start flex-none w-screen h-screen md:h-screen relative" data-showcase>
+<img loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Azure Heights — exterior of a luxury mediterranean villa with white walls, dark metal window frames, palm trees and a landscaped pool at late afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBRFWK5F8TXOkX4kzyI6tx7ujeC6N3EgVN28vbAzuWD-TsclV1PqrSidLA1zcjbMybvjPnAi42nYbnSO4qYKUtAqvfBwQPGHhheOp02sj7bCLbpUDFAIF0IiaevWiArkLjQD5dqjpgQ5ViEICZvDM0mHthidJ2SutMDC7HsBkOJx1YpFI_iA0MCUuEDw4GVqLjalsiswxY9VJOqxACCdpxetRwcDFCG6ZuCft7tCqEYUF06Kgj3IFvStn3f0LkNcfpl1sH6bSkxLY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/55 pointer-events-none"></div>
+<figcaption class="project-caption absolute bottom-28 left-margin-mobile md:bottom-32 md:left-margin-desktop glass p-6 md:p-8 max-w-md z-10">
+<p class="font-label-md text-accent-beige uppercase tracking-widest mb-2">Project 06</p>
+<h4 class="font-headline-md text-2xl md:text-4xl text-white">Azure Heights</h4>
 </figcaption>
 </figure>
+</div>
+</div>
+<!-- Nav overlay (bottom-center, on top of cards) -->
+<div class="projects-nav absolute bottom-8 md:bottom-12 left-0 right-0 z-20 flex items-center justify-center gap-4 md:gap-6 px-margin-mobile md:px-margin-desktop pointer-events-none">
+<button id="prev-project" class="projects-arrow md:hidden pointer-events-auto" type="button" aria-label="Previous project">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+</button>
+<div class="projects-dots flex items-center gap-3 pointer-events-auto" role="tablist" aria-label="Project navigation">
+<button class="projects-dot active" type="button" data-dot="0" role="tab" aria-label="Project 1 of 3"></button>
+<button class="projects-dot" type="button" data-dot="1" role="tab" aria-label="Project 2 of 3"></button>
+<button class="projects-dot" type="button" data-dot="2" role="tab" aria-label="Project 3 of 3"></button>
+</div>
+<button id="next-project" class="projects-arrow md:hidden pointer-events-auto" type="button" aria-label="Next project">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+</button>
+</div>
+</div>
 </div>
 </section>
 <!-- About Section -->
@@ -982,7 +1067,7 @@ Now Reserving · Collection 02
 </div>
 </section>
 <!-- Process / Journey — Awwwards anchor: pinned scroll-scrub -->
-<section id="process" class="process-pin-wrap bg-surface-container-low">
+<section id="process" class="process-pin-wrap bg-surface-container-low py-20 md:py-0">
 <div class="process-pin-inner px-margin-mobile md:px-margin-desktop">
 <div class="max-w-2xl mb-12 md:mb-16">
 <span class="font-label-md text-label-md text-accent-beige uppercase tracking-widest mb-4 block">Our Process</span>
@@ -1607,25 +1692,81 @@ Now Reserving · Collection 02
                 setTimeout(() => ctaMsg.classList.add('opacity-0'), 5000);
             });
 
-            // ---------- Horizontal scroll drag (mouse + touch) ----------
-            const slider = document.getElementById('horizontal-scroll');
-            if (slider) {
-                let isDown = false, startX = 0, scrollLeft = 0;
-                const begin = (x) => { isDown = true; startX = x; scrollLeft = slider.scrollLeft; };
-                const move = (x, e) => {
-                    if (!isDown) return;
-                    if (e?.cancelable) e.preventDefault();
-                    slider.scrollLeft = scrollLeft - (x - startX) * 1.6;
+            // ---------- Selected Projects: pinned horizontal scroll (desktop) + arrows (mobile) + dots (both) ----------
+            (() => {
+                const section = document.getElementById('projects');
+                const track = document.getElementById('horizontal-scroll');
+                if (!section || !track) return;
+                const cards = Array.from(track.children);
+                const dots = section.querySelectorAll('.projects-dot');
+                const prevBtn = document.getElementById('prev-project');
+                const nextBtn = document.getElementById('next-project');
+                const setActive = (i) => dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+
+                // Mobile: scroll-snap → dots sync (cards are full-width, gap=0)
+                const onTrackScroll = () => {
+                    if (window.innerWidth >= 768) return;
+                    const w = cards[0].offsetWidth || 1;
+                    const idx = Math.max(0, Math.min(cards.length - 1, Math.round(track.scrollLeft / w)));
+                    setActive(idx);
                 };
-                const end = () => { isDown = false; };
-                slider.addEventListener('mousedown', e => begin(e.pageX));
-                slider.addEventListener('mousemove', e => move(e.pageX, e));
-                slider.addEventListener('mouseleave', end);
-                slider.addEventListener('mouseup', end);
-                slider.addEventListener('touchstart', e => begin(e.touches[0].pageX), { passive: true });
-                slider.addEventListener('touchmove', e => move(e.touches[0].pageX, e), { passive: false });
-                slider.addEventListener('touchend', end);
-            }
+                track.addEventListener('scroll', onTrackScroll, { passive: true });
+
+                const currentIdx = () => {
+                    const w = cards[0].offsetWidth || 1;
+                    return Math.round(track.scrollLeft / w);
+                };
+                const scrollToCard = (i) => {
+                    const card = cards[i];
+                    if (!card) return;
+                    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+                };
+                prevBtn?.addEventListener('click', () => scrollToCard(Math.max(0, currentIdx() - 1)));
+                nextBtn?.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, currentIdx() + 1)));
+
+                dots.forEach((d, i) => d.addEventListener('click', () => {
+                    if (window.innerWidth < 768) { scrollToCard(i); return; }
+                    const wrap = section.querySelector('.projects-pin-wrap');
+                    if (!wrap) return;
+                    const pinTop = wrap.getBoundingClientRect().top + window.scrollY;
+                    const pinHeight = wrap.offsetHeight;
+                    const progress = cards.length > 1 ? i / (cards.length - 1) : 0;
+                    const target = pinTop + (pinHeight - window.innerHeight) * progress;
+                    if (typeof lenis !== 'undefined' && lenis?.scrollTo) lenis.scrollTo(target, { duration: 1.2 });
+                    else window.scrollTo({ top: target, behavior: 'smooth' });
+                }));
+
+                // Desktop: CSS sticky + JS scroll-driven horizontal transform (no GSAP pin — pin-spacer
+                // was fighting our explicit CSS height and causing the About section to overlap)
+                let ticking = false;
+                const onPageScroll = () => {
+                    if (window.innerWidth < 768 || reduceMotion) return;
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        ticking = false;
+                        const wrap = section.querySelector('.projects-pin-wrap');
+                        if (!wrap) return;
+                        const rect = wrap.getBoundingClientRect();
+                        const total = wrap.offsetHeight - window.innerHeight;
+                        if (total <= 0) return;
+                        const scrolled = Math.max(0, Math.min(total, -rect.top));
+                        const progress = scrolled / total;
+                        const cardW = cards[0].offsetWidth;
+                        const distance = (cards.length - 1) * cardW;
+                        track.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
+                        const i = Math.min(cards.length - 1, Math.round(progress * (cards.length - 1)));
+                        setActive(i);
+                    });
+                };
+                window.addEventListener('scroll', onPageScroll, { passive: true });
+                window.addEventListener('resize', () => {
+                    // Reset transform if we switch to mobile
+                    if (window.innerWidth < 768) track.style.transform = '';
+                    onPageScroll();
+                });
+                onPageScroll();
+            })();
 
             // ---------- Newsletter form ----------
             const nlForm = document.getElementById('newsletter-form');
