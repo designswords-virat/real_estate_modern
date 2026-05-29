@@ -367,9 +367,13 @@
         .about-line.in > span { transform: translateY(0); }
         .about-line:nth-of-type(2) > span { transition-delay: 0.1s; }
         .about-line:nth-of-type(3) > span { transition-delay: 0.2s; }
+        /* One-shot CSS reveal so the image is guaranteed visible even if the IO never fires. */
         .about-img-clip {
             clip-path: inset(0 100% 0 0);
-            transition: clip-path 1.2s cubic-bezier(0.85,0,0.15,1) 0.2s;
+            animation: about-img-clip-reveal 1.4s cubic-bezier(0.85,0,0.15,1) 0.5s forwards;
+        }
+        @keyframes about-img-clip-reveal {
+            to { clip-path: inset(0 0 0 0); }
         }
         .about-img-clip.in { clip-path: inset(0 0 0 0); }
         [data-about-line] {
@@ -778,14 +782,18 @@
         @media (min-width: 768px) {
             .process-pin-wrap {
                 position: relative;
-                min-height: 100vh;
+                /* Wrap = sticky-inner (100vh) + scrub band (200vh). The wrap MUST be taller than
+                   the sticky inner for the sticky to engage with any scroll distance — previously
+                   they were both 100vh, so sticky released immediately and the 1-2-3-4 progress
+                   line had nothing to scrub against. */
+                min-height: 300vh;
             }
             .process-pin-inner {
                 position: sticky; top: 0;
-                min-height: 100vh;
+                height: 100vh;
                 display: flex; flex-direction: column;
                 justify-content: center;
-                padding-block: 6rem;
+                padding-block: 4rem;
             }
         }
         .process-step.active .process-num {
@@ -1601,8 +1609,11 @@
                         ScrollTrigger.create({
                             trigger: '#process',
                             start: 'top top',
-                            end: () => `+=${innerHeight * (steps.length - 0.4)}`,
+                            // Anchor end to the wrap's own bottom — guarantees the scrub
+                            // range matches the sticky range exactly, no dead zone.
+                            end: 'bottom bottom',
                             scrub: 0.6,
+                            invalidateOnRefresh: true,
                             onUpdate: (self) => {
                                 const p = self.progress;
                                 const idx = Math.min(steps.length - 1, Math.floor(p * steps.length));
